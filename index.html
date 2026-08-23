@@ -93,11 +93,16 @@ button{margin-inline:auto;display:block}
 </div>
 </div>
 <script>
-btn.onclick=()=>{
-hidden.style.display="none";
-letter.style.display="flex";
-btn.style.display="none";
-}
+document.addEventListener('DOMContentLoaded', function () {
+  const btn = document.getElementById('btn');
+  const hidden = document.getElementById('hidden');
+  const letter = document.getElementById('letter');
+  btn.addEventListener('click', function(){
+    hidden.style.display='none';
+    letter.style.display='flex';
+    btn.style.display='none';
+  });
+});
 </script>
 </body>
 </html>
