@@ -6,104 +6,39 @@
 <title>Para Bia</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{
-font-family:Segoe UI,Arial,sans-serif;
-height:100vh;overflow:hidden;color:#fff;
-background:
-radial-gradient(circle at top,#3d195f55,transparent 35%),
-linear-gradient(#09060d,#030204);
-display:flex;justify-content:center;align-items:center;
-}
-body:before{
-content:"";position:fixed;inset:0;
-background:
-radial-gradient(circle,#ffffff08 1px,transparent 1px);
-background-size:40px 40px;
-opacity:.25;
-animation:drift 20s linear infinite;
-}
+body{font-family:Segoe UI,Arial,sans-serif;height:100vh;overflow:hidden;color:#fff;background:radial-gradient(circle at top,#3d195f55,transparent 35%),linear-gradient(#09060d,#030204);display:flex;justify-content:center;align-items:center}
+body:before{content:"";position:fixed;inset:0;background:radial-gradient(circle,#ffffff08 1px,transparent 1px);background-size:40px 40px;opacity:.25;animation:drift 20s linear infinite;pointer-events:none}
 @keyframes drift{to{transform:translateY(40px)}}
-.fog,.fog2{
-position:fixed;inset:-20%;
-background:radial-gradient(circle,#b16eff22,transparent 60%);
-filter:blur(60px);
-animation:float 10s ease-in-out infinite;
-}
+.fog,.fog2{position:fixed;inset:-20%;background:radial-gradient(circle,#b16eff22,transparent 60%);filter:blur(60px);animation:float 10s ease-in-out infinite;z-index:0;pointer-events:none}
 .fog2{animation-delay:-5s;transform:translate(40%,30%)}
 @keyframes float{50%{transform:translate(-5%,3%)}}
-.container{width:min(900px,92%);display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
-h1{font-size:clamp(3rem,6vw,5rem);line-height:.95}
-h1 span{color:#d8b4fe;text-shadow:0 0 20px #b16eff}
-button{
-margin-top:30px;padding:16px 34px;border:none;border-radius:999px;
-background:#8f4be0;color:#fff;font-weight:700;cursor:pointer;
-box-shadow:0 0 25px #8f4be088;transition:.25s}
+.container{width:min(900px,92%);display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;position:relative;z-index:2}
+h1{font-size:clamp(3rem,6vw,5rem);line-height:.95}h1 span{color:#d8b4fe;text-shadow:0 0 20px #b16eff}
+button{margin-top:30px;padding:16px 34px;border:none;border-radius:999px;background:#8f4be0;color:#fff;font-weight:700;cursor:pointer;box-shadow:0 0 25px #8f4be088;transition:.25s;position:relative;z-index:5}
 button:hover{transform:scale(1.05)}
-.card{
-background:#ffffff10;border:1px solid #ffffff18;
-backdrop-filter:blur(14px);
-border-radius:24px;padding:22px;min-height:420px;
-box-shadow:0 20px 60px #0008;
-}
-.window{display:flex;gap:8px;margin-bottom:20px}
-.dot{width:12px;height:12px;border-radius:50%}
-.hidden,.letter{height:340px;border-radius:18px;display:flex;align-items:center;justify-content:center;flex-direction:column}
-.hidden{border:1px dashed #d8b4fe55}
-.hidden h2{color:#d8b4fe}
-.letter{
-display:none;
-align-items:flex-start;
-justify-content:flex-start;
-padding:28px;
-background:linear-gradient(#b16eff22,#09060d);
-animation:open .8s ease;
-}
+.card{background:#ffffff10;border:1px solid #ffffff18;backdrop-filter:blur(14px);border-radius:24px;padding:22px;min-height:420px;box-shadow:0 20px 60px #0008}
+.window{display:flex;gap:8px;margin-bottom:20px}.dot{width:12px;height:12px;border-radius:50%}
+.hidden,.letter{height:340px;border-radius:18px;display:flex;align-items:center;justify-content:center;flex-direction:column}.hidden{border:1px dashed #d8b4fe55}.hidden h2{color:#d8b4fe}
+.letter{display:none;align-items:flex-start;justify-content:flex-start;padding:28px;background:linear-gradient(#b16eff22,#09060d);animation:open .8s ease}
 @keyframes open{from{opacity:0;transform:scale(.9) rotateX(-30deg)}to{opacity:1;transform:none}}
-.letter h2{margin-bottom:18px;color:#d8b4fe}
-.letter p{font-size:1.1rem;line-height:1.9}
-.lilac{color:#d8b4fe;font-weight:bold}
-@media(max-width:800px){
-.container{grid-template-columns:1fr}
-.left{text-align:center}
-button{margin-inline:auto;display:block}
-}
+.letter h2{margin-bottom:18px;color:#d8b4fe}.letter p{font-size:1.1rem;line-height:1.9}.lilac{color:#d8b4fe;font-weight:bold}
+@media(max-width:800px){.container{grid-template-columns:1fr}.left{text-align:center}button{margin-inline:auto;display:block}}
 </style>
 </head>
 <body>
 <div class="fog"></div><div class="fog2"></div>
 <div class="container">
-<div class="left">
-<h1>Para <span>Bia</span>,<br>um carinho nas sombras.</h1>
-<button id="btn">Clique aqui</button>
-</div>
+<div class="left"><h1>Para <span>Bia</span>,<br>um carinho nas sombras.</h1><button id="btn">Clique aqui</button></div>
 <div class="card">
-<div class="window">
-<div class="dot" style="background:#ff7b7b"></div>
-<div class="dot" style="background:#ffd36b"></div>
-<div class="dot" style="background:#b16eff"></div>
-</div>
-<div class="hidden" id="hidden">
-<h2>☠</h2>
-<p>A mensagem está escondida...</p>
-</div>
-<div class="letter" id="letter">
-<h2>Uma mensagem lilás</h2>
-<p>nos conhecemos pouco antes da quarentena, nao me lembro muito bem do que aconteceu, mas sou feliz de ter te conhecido, obrigado por colorir o meu mundo e trazer um pouco do seu <span class="lilac">lilás</span>.</p>
-</div>
-</div>
-</div>
+<div class="window"><div class="dot" style="background:#ff7b7b"></div><div class="dot" style="background:#ffd36b"></div><div class="dot" style="background:#b16eff"></div></div>
+<div class="hidden" id="hidden"><h2>☠</h2><p>A mensagem está escondida...</p></div>
+<div class="letter" id="letter"><h2>Uma mensagem lilás</h2><p>nos conhecemos pouco antes da quarentena, nao me lembro muito bem do que aconteceu, mas sou feliz de ter te conhecido, obrigado por colorir o meu mundo e trazer um pouco do seu <span class="lilac">lilás</span>.</p></div>
+</div></div>
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-    const btn = document.getElementById("btn");
-    const hidden = document.getElementById("hidden");
-    const letter = document.getElementById("letter");
-
-    btn.addEventListener("click", () => {
-        hidden.style.display = "none";
-        letter.style.display = "flex";
-        btn.style.display = "none";
-    });
-});
+const btn=document.getElementById('btn');
+const hidden=document.getElementById('hidden');
+const letter=document.getElementById('letter');
+btn.onclick=function(){hidden.style.display='none';letter.style.display='flex';btn.style.display='none';};
 </script>
 </body>
 </html>
